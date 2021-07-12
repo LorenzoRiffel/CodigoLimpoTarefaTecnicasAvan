@@ -1,6 +1,7 @@
 ﻿fichas = dict()
-lista = list()
-somaIdade = media = 0
+listaCadastro = list()
+somaIdade = 0
+media = 0
 while True:
     # Limpar o dicionario "fichas"
     fichas.clear()
@@ -13,24 +14,24 @@ while True:
         print('Erro! Por favor digite apenas M ou F. ')
     fichas['idade'] = int(input('Qual sua idade? '))
     somaIdade += fichas['idade']
-    lista.append(fichas.copy())
+    listaCadastro.append(fichas.copy())
     while True:
-        escolha = str(input('Quer continuar? (S/N) ')).upper().strip()[0]
+        escolha = str(input('Quer continuar? (S/N)')).upper().strip()[0]
         if escolha in 'SN':
             break
         print('Erro! Digite novamente')
     if escolha == 'N':
         break
-print(f'Foram cadastradas {len(lista)} pessoas')
-media = somaIdade / len(lista)
+print(f'Foram cadastradas {len(listaCadastro)} pessoas')
+media = somaIdade / len(listaCadastro)
 print(f'A media de idade do grupo {media:.2f}')
 print('A lista com todas mulheres cadastradas: ', end='')
-for p in lista:
+for p in listaCadastro:
     if p['sexo'] == 'F':
         print(f'{p["nome"]} ', end='')
 print()
 print('A lista das pessoas que estão acima da media da idade: ')
-for p in lista:
+for p in listaCadastro:
     if p['idade'] >= media:
         print('         ')
         for k, v in p.items():
