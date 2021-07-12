@@ -2,10 +2,12 @@
 lista = list()
 somaIdade = media = 0
 while True:
+    # Limpar o dicionario "fichas"
     fichas.clear()
     fichas['nome'] = str(input('Nome da pessoa? '))
     while True:
-        fichas['sexo'] = str(input('Qual seu sexo? (M/F) ')).upper().strip()[0]
+        # Perguntando o sexo da pessoa, e caso a pessoa não escolha M (Masculino) ou F (Feminino), se não da a mensagem de erro e volta pro while
+	fichas['sexo'] = str(input('Qual seu sexo? (M/F) ')).upper().strip()[0]
         if fichas['sexo'] in 'MF':
             break
         print('Erro! Por favor digite apenas M ou F. ')
@@ -35,4 +37,3 @@ for p in lista:
             print(f'{k} = {v} ', end='')
         print()
 print('Fim')
-
